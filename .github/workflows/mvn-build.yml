@@ -25,3 +25,15 @@ jobs:
           
       - name: build-maven
         run: mvn clean package  
+
+      - name: Nexus Repo Publish
+        uses: sonatype-nexus-community/nexus-repo-github-action@master
+        with:
+          serverUrl: ${{ secrets.NEXUS_HOST_URL }}
+          username: admin
+          password: ${{ secrets.NEXUS_PASSWORD }}
+          format: maven2
+          repository: maven-releases
+          coordinates: groupId=com.efsavage artifactId=hello-world-war version=1.1.4
+          assets: extension=war
+          filename: ./target/*.war
