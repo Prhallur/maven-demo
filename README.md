@@ -1,2 +1,2 @@
 # maven-demo
-maven demo
+maven demo ..
