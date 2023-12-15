@@ -39,3 +39,10 @@ jobs:
           coordinates: groupId=com.efsavage artifactId=hello-world-war version=1.1.4
           assets: extension=war
           filename: ./target/*.war
+          
+      - name: Deploy WAR to Tomcat
+        run: |
+          curl --version
+          ls -l
+          # Replace 'your-war-file.war' with the actual name of your WAR file
+          curl -v -u admin:${{ secrets.TOMCAT_PASSWORD }} -T *.war 'http://${{ secrets.TOMCAT_HOST }}:8080/manager/text/deploy?path=/devops_demo1&update=true'
