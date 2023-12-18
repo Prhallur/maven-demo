@@ -49,7 +49,7 @@
 
         			<artifactId>sonar-maven-plugin</artifactId>
 
-        			<version>3.9.1.2184</version>
+        			<version>3.4.0.905</version>
 
       			</plugin>
 
